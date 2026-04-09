@@ -31,8 +31,14 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'BudgetPacker API is running' });
 });
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Backend server running on port ${PORT}`);
 });
+
