@@ -22,7 +22,7 @@ const MyTrips = () => {
     const fetchTrips = async () => {
       if (!token) return;
       try {
-        const res = await axios.get('http://localhost:5000/api/users/saved-trips');
+        const res = await axios.get('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/users/saved-trips');
         setTrips(res.data);
       } catch (err) {
         console.error(err);

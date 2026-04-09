@@ -36,7 +36,7 @@ const VerifyOTP = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/verify-otp', { email, otp: otpValue });
+      const res = await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/auth/verify-otp', { email, otp: otpValue });
       localStorage.setItem('token', res.data.token);
       toast.success('Email verified successfully!');
       setTimeout(() => navigate('/'), 1500);

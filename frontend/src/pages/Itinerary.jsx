@@ -23,7 +23,7 @@ const Itinerary = () => {
   useEffect(() => {
     const fetchTrip = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/trips/${id}`);
+        const res = await axios.get(`https://budgetpacker-ai-powered-trip-planner.onrender.com//api/trips/${id}`);
         setTrip(res.data);
       } catch (err) {
         console.error("Failed to load trip");
@@ -46,7 +46,7 @@ const Itinerary = () => {
     setChatting(true);
     
     try {
-      const res = await axios.post(`http://localhost:5000/api/trips/${id}/chat`, { message: msg });
+      const res = await axios.post(`https://budgetpacker-ai-powered-trip-planner.onrender.com//api/trips/${id}/chat`, { message: msg });
       setTrip(res.data);
     } catch (err) {
       console.error(err);
@@ -63,7 +63,7 @@ const Itinerary = () => {
     }
     setSaving(true);
     try {
-      await axios.post('http://localhost:5000/api/users/save-trip', { tripId: id });
+      await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/users/save-trip', { tripId: id });
       alert("Trip saved successfully!");
     } catch (err) {
       console.error(err);
@@ -138,14 +138,14 @@ const Itinerary = () => {
     const higherBudget = Math.round(trip.budget * 1.5);
     try {
       const [lowerRes, higherRes] = await Promise.all([
-        axios.post('http://localhost:5000/api/trips/generate', {
+        axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/trips/generate', {
           budget: lowerBudget,
           days: trip.days,
           startingCity: trip.startingCity,
           destinationCity: trip.destinationCity || currentPlan.tripDetails?.destination,
           vibe: trip.vibe
         }),
-        axios.post('http://localhost:5000/api/trips/generate', {
+        axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/trips/generate', {
           budget: higherBudget,
           days: trip.days,
           startingCity: trip.startingCity,

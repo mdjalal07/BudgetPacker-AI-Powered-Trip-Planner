@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
+      await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/auth/forgot-password', { email });
       setSent(true);
       toast.success('Reset link sent to your email!');
     } catch (err) {

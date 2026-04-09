@@ -50,7 +50,7 @@ const Home = () => {
     
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/trips/generate', {
+      const response = await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/trips/generate', {
         budget: Number(formData.budget),
         days: Number(formData.days),
         startingCity: formData.startingCity,

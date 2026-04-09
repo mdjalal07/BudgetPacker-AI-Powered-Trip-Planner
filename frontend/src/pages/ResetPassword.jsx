@@ -20,7 +20,7 @@ const ResetPassword = () => {
 
     setLoading(true);
     try {
-      await axios.post('http://localhost:5000/api/auth/reset-password', { token, password });
+      await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/auth/reset-password', { token, password });
       toast.success('Password reset successfully!');
       setTimeout(() => navigate('/login'), 2000);
     } catch (err) {

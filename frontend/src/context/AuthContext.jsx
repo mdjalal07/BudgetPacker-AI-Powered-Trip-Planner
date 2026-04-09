@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       try {
-        const res = await axios.get('http://localhost:5000/api/auth/me');
+        const res = await axios.get('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/auth/me');
         setUser(res.data);
       } catch (err) {
         console.error(err);
@@ -29,14 +29,14 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = async (email, password) => {
-    const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+    const res = await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/auth/login', { email, password });
     localStorage.setItem('token', res.data.token);
     setToken(res.data.token);
   };
 
   const register = async (name, email, password) => {
     // Registration now only sends OTP, doesn't return token yet
-    await axios.post('http://localhost:5000/api/auth/register', { name, email, password });
+    await axios.post('https://budgetpacker-ai-powered-trip-planner.onrender.com//api/auth/register', { name, email, password });
   };
 
   const logout = () => {
